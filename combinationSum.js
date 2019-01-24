@@ -39,3 +39,22 @@ var combinationSum = function(candidates, target) {
 };
 
 //not optimal solution, look into backtracking
+
+var combinationSum = function(candidates, target) {
+    let result = [];
+    const recurse = (current, num, i) => {
+        if(num === 0) {
+            result.push(current.slice());
+            return;
+        } else if(num < 0) return;
+        for(i; i<candidates.length; i++) {
+            current.push(candidates[i]);
+            recurse(current, num - candidates[i], i);
+            current.pop();
+        }
+    }
+    recurse([], target, 0);
+    return result;
+};
+
+//faster than about 50% of submissions, passing in i prevents checking duplicate solutions
