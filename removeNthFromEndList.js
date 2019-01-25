@@ -30,3 +30,20 @@ var removeNthFromEnd = function(head, n) {
 };
 
 // naive solution, should be able to do in one pass
+
+var removeNthFromEnd = function(head, n) {
+    if(!head.next) return null;
+    let result = head;
+    let link = head;
+    let zelda = head;
+    while(link) {
+        link = link.next;
+        if(n === -1) zelda = zelda.next;
+        if(n !== -1) n--;
+    }
+    if (n !== -1) return head.next;
+    zelda.next = zelda.next.next;
+    return result;
+};
+
+// one pass but slower for some reason
