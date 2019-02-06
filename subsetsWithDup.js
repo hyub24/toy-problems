@@ -4,7 +4,7 @@
  */
 var subsetsWithDup = function(nums) {
     let result = [];
-    //nums.sort((a,b) => (a-b));
+    nums.sort((a,b) => (a-b));
     const recurse = (current = [], index = 0) => {
         let unique = true;
         for (let i = 0; i <result.length; i++) {
