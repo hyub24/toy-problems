@@ -43,3 +43,4 @@ var spellchecker = function(wordlist, queries) {
 };
 
 // pretty slow, but low space
+// could make much faster using hashtable
