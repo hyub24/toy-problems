@@ -11,17 +11,16 @@
  * @return {number}
  */
 var kthSmallest = function(root, k) {
-    if(!root.right && !root.left) return root.val;
     let arr = [];
     const recurse = (node) => {
-        arr.push(node.val);
+        if (arr.length === k) return;
         if (node.left) recurse(node.left);
+        if (arr.length === k) return;
+        arr.push(node.val);
         if (node.right) recurse(node.right);
     }
     recurse(root);
-    arr.sort((a,b)=>(a-b));
-    console.log(arr)
     return arr[k - 1];
 };
 
-// not optimal, faster than 2% of submissions, 156 ms
+// number 230
